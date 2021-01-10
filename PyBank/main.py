@@ -23,6 +23,7 @@ with open(csvpath, newline='') as csvfile:
     print(f"CSV Header: {csv_header}")
 
     for row in csvreader:
+       total_months += 1 
        print(row)
 
 
@@ -30,7 +31,7 @@ with open(csvpath, newline='') as csvfile:
 output = f"""
 Financial Analysis 
 --------------------------
-Total Months: 
+Total Months: {total_months}
 Total: 
 Average Change: 
 Greatest Increase in Profits:
