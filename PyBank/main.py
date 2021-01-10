@@ -11,13 +11,13 @@ greatest_increase = 0
 greatest_decrease = 0
 greatest_increase_date = ""
 greatest_decrease_date = ""
-
+total_change = 0
+change = 0
+change_count = 0
 
 with open(csvpath, newline='') as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
-
-    #print(csvreader)
 
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
@@ -27,3 +27,13 @@ with open(csvpath, newline='') as csvfile:
 
 
 
+output = f"""
+Financial Analysis 
+--------------------------
+Total Months: 
+Total: 
+Average Change: 
+Greatest Increase in Profits:
+Greatest Decrease in Profits:
+"""
+print(output)
