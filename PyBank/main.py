@@ -21,11 +21,10 @@ with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     for row in csvreader:
         total_months += 1 
-        print(row)
         
         budget = int(row[1])
         net_total += budget
@@ -34,12 +33,18 @@ with open(csvpath, newline='') as csvfile:
             change = budget - previous_budget
             total_change += change
             change_count += 1
-            # print(change)
         
         previous_budget = budget
+
+        if change > greatest_increase:
+            greatest_increase = change
+            greatest_increase_date = row[0]
+
+        if change < greatest_decrease: 
+            greatest_decrease = change
+            greatest_decrease_date = row[0]
+
     
-
-
 
 output = f"""
 Financial Analysis 
@@ -47,7 +52,7 @@ Financial Analysis
 Total Months: {total_months}
 Total: ${net_total}
 Average Change: {total_change/change_count}
-Greatest Increase in Profits:
-Greatest Decrease in Profits:
+Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})
+Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})
 """
 print(output)
