@@ -21,7 +21,16 @@ with open(csvpath, newline='') as csvfile:
     for row in csvreader:
         total_votes += 1
 
-      
+        if row[2] == "Khan":
+            Khan_votes += 1
+        elif row[2] == "Correy":
+            Correy_votes += 1
+        elif row[2] == "Li":
+            Li_votes += 1
+        elif row[2] == "O'Tooley":
+            OTooley_votes += 1
+
+
 
 
 
@@ -31,10 +40,10 @@ Election Results
 ---------------------
 Total Votes: {total_votes}
 ---------------------
-Khan: %, (total votes)
-Correy: %, (total votes)
-Li: %, (total votes)
-O'Tooley: %, (total votes)
+Khan: %, ({Khan_votes})
+Correy: %, ({Correy_votes})
+Li: %, ({Li_votes})
+O'Tooley: %, ({OTooley_votes})
 ---------------------
 Winner:
 ---------------------
