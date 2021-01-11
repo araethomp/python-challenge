@@ -51,8 +51,18 @@ Financial Analysis
 --------------------------
 Total Months: {total_months}
 Total: ${net_total}
-Average Change: {total_change/change_count}
+Average Change: ${total_change/change_count}
 Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})
 Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})
 """
 print(output)
+
+with open(output_file, 'w') as new_output_file:
+    new_output_file.write(output)
+
+#Citation:
+#Title: Bank_main source code 
+# Author: Chao, D.
+# Date: 2021
+# Code version: 1.0
+# Availability: Used as reference in tutoring session   
