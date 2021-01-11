@@ -6,6 +6,7 @@ output_file = os.path.join('analysis', 'pybank.txt')
 
 total_months = 0
 net_total = 0
+budget = 0
 previous_budget = 0
 greatest_increase = 0
 greatest_decrease = 0
@@ -23,8 +24,13 @@ with open(csvpath, newline='') as csvfile:
     print(f"CSV Header: {csv_header}")
 
     for row in csvreader:
-       total_months += 1 
-       print(row)
+        total_months += 1 
+        print(row)
+        
+        budget = int(row[1])
+        net_total += budget
+
+    
 
 
 
@@ -32,7 +38,7 @@ output = f"""
 Financial Analysis 
 --------------------------
 Total Months: {total_months}
-Total: 
+Total: ${net_total}
 Average Change: 
 Greatest Increase in Profits:
 Greatest Decrease in Profits:
