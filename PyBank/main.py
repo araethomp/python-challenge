@@ -29,7 +29,14 @@ with open(csvpath, newline='') as csvfile:
         
         budget = int(row[1])
         net_total += budget
-
+        
+        if previous_budget != 0:
+            change = budget - previous_budget
+            total_change += change
+            change_count += 1
+            # print(change)
+        
+        previous_budget = budget
     
 
 
@@ -39,7 +46,7 @@ Financial Analysis
 --------------------------
 Total Months: {total_months}
 Total: ${net_total}
-Average Change: 
+Average Change: {total_change/change_count}
 Greatest Increase in Profits:
 Greatest Decrease in Profits:
 """
