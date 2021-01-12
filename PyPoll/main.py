@@ -18,7 +18,6 @@ with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
 
     for row in csvreader:
         total_votes += 1
@@ -51,12 +50,16 @@ Election Results
 ---------------------
 Total Votes: {total_votes}
 ---------------------
-Khan: {(Khan_votes/total_votes)*100}%, ({Khan_votes})
-Correy: {(Correy_votes/total_votes)*100}%, ({Correy_votes})
-Li: {(Li_votes/total_votes)*100}%, ({Li_votes})
-O'Tooley: {(OTooley_votes/total_votes)*100}%, ({OTooley_votes})
+Khan: {(Khan_votes/total_votes)*100:.3f}%, ({Khan_votes})
+Correy: {(Correy_votes/total_votes)*100:.3f}%, ({Correy_votes})
+Li: {(Li_votes/total_votes)*100:.3f}%, ({Li_votes})
+O'Tooley: {(OTooley_votes/total_votes)*100:.3f}%, ({OTooley_votes})
 ---------------------
 Winner: {winner}
 ---------------------
 """
 print(output)
+
+with open(output_file, 'w') as updated_output_file:
+    updated_output_file.write(output)
+    
