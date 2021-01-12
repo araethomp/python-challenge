@@ -62,4 +62,10 @@ print(output)
 
 with open(output_file, 'w') as updated_output_file:
     updated_output_file.write(output)
-    
+
+#Citation:
+#Title: Poll_main source code 
+# Author: Chao, D.
+# Date: 2021
+# Code version: 1.0
+# Availability: Used as reference in tutoring session  
