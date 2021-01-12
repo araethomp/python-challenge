@@ -31,7 +31,12 @@ with open(csvpath, newline='') as csvfile:
             OTooley_votes += 1
 
 
-
+dict_votes_per_candidate = {
+    "Khan": Khan_votes,
+    "Correy": Correy_votes,
+    "Li": Li_votes,
+    "O'Tooley": OTooley_votes
+}
 
 
 
@@ -40,10 +45,10 @@ Election Results
 ---------------------
 Total Votes: {total_votes}
 ---------------------
-Khan: %, ({Khan_votes})
-Correy: %, ({Correy_votes})
-Li: %, ({Li_votes})
-O'Tooley: %, ({OTooley_votes})
+Khan: {(Khan_votes/total_votes)*100}%, ({Khan_votes})
+Correy: {(Correy_votes/total_votes)*100}%, ({Correy_votes})
+Li: {(Li_votes/total_votes)*100}%, ({Li_votes})
+O'Tooley: {(OTooley_votes/total_votes)*100}%, ({OTooley_votes})
 ---------------------
 Winner:
 ---------------------
