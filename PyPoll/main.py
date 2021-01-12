@@ -11,6 +11,8 @@ Li_votes = 0
 OTooley_votes = 0
 winner = ""
 candidates = ['Khan', 'Correy', 'Li', 'OTooley']
+highest_votes = 0
+votes = 0
 
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -38,6 +40,10 @@ dict_votes_per_candidate = {
     "O'Tooley": OTooley_votes
 }
 
+for candidate, votes in dict_votes_per_candidate.items():
+    if votes > highest_votes:
+        highest_votes = votes
+        winner = candidate
 
 
 output = f"""
@@ -50,7 +56,7 @@ Correy: {(Correy_votes/total_votes)*100}%, ({Correy_votes})
 Li: {(Li_votes/total_votes)*100}%, ({Li_votes})
 O'Tooley: {(OTooley_votes/total_votes)*100}%, ({OTooley_votes})
 ---------------------
-Winner:
+Winner: {winner}
 ---------------------
 """
 print(output)
